@@ -1,0 +1,17 @@
+D:\Projects\EstadioIQ\EstadioIQ\EstadioIQ.BAL\bin\Debug\net8.0\EstadioIQ.BAL.deps.json
+D:\Projects\EstadioIQ\EstadioIQ\EstadioIQ.BAL\bin\Debug\net8.0\EstadioIQ.BAL.dll
+D:\Projects\EstadioIQ\EstadioIQ\EstadioIQ.BAL\bin\Debug\net8.0\EstadioIQ.BAL.pdb
+D:\Projects\EstadioIQ\EstadioIQ\EstadioIQ.BAL\bin\Debug\net8.0\EstadioIQ.DAL.dll
+D:\Projects\EstadioIQ\EstadioIQ\EstadioIQ.BAL\bin\Debug\net8.0\EstadioIQ.Entity.dll
+D:\Projects\EstadioIQ\EstadioIQ\EstadioIQ.BAL\bin\Debug\net8.0\EstadioIQ.DAL.pdb
+D:\Projects\EstadioIQ\EstadioIQ\EstadioIQ.BAL\bin\Debug\net8.0\EstadioIQ.Entity.pdb
+D:\Projects\EstadioIQ\EstadioIQ\EstadioIQ.BAL\obj\Debug\net8.0\EstadioIQ.BAL.csproj.AssemblyReference.cache
+D:\Projects\EstadioIQ\EstadioIQ\EstadioIQ.BAL\obj\Debug\net8.0\EstadioIQ.BAL.GeneratedMSBuildEditorConfig.editorconfig
+D:\Projects\EstadioIQ\EstadioIQ\EstadioIQ.BAL\obj\Debug\net8.0\EstadioIQ.BAL.AssemblyInfoInputs.cache
+D:\Projects\EstadioIQ\EstadioIQ\EstadioIQ.BAL\obj\Debug\net8.0\EstadioIQ.BAL.AssemblyInfo.cs
+D:\Projects\EstadioIQ\EstadioIQ\EstadioIQ.BAL\obj\Debug\net8.0\EstadioIQ.BAL.csproj.CoreCompileInputs.cache
+D:\Projects\EstadioIQ\EstadioIQ\EstadioIQ.BAL\obj\Debug\net8.0\EstadioI.AD476F92.Up2Date
+D:\Projects\EstadioIQ\EstadioIQ\EstadioIQ.BAL\obj\Debug\net8.0\EstadioIQ.BAL.dll
+D:\Projects\EstadioIQ\EstadioIQ\EstadioIQ.BAL\obj\Debug\net8.0\refint\EstadioIQ.BAL.dll
+D:\Projects\EstadioIQ\EstadioIQ\EstadioIQ.BAL\obj\Debug\net8.0\EstadioIQ.BAL.pdb
+D:\Projects\EstadioIQ\EstadioIQ\EstadioIQ.BAL\obj\Debug\net8.0\ref\EstadioIQ.BAL.dll

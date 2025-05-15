@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "cwGS3B55md3KPVmesUvEZzzbHofBZf7BtWvk9prgo5Q=",
+  "Source": "EstadioIQ.API",
+  "BasePath": "_content/EstadioIQ.API",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}

@@ -1,0 +1,11 @@
+D:\Projects\EstadioIQ\EstadioIQ\EstadioIQ.Entity\bin\Debug\net8.0\EstadioIQ.Entity.deps.json
+D:\Projects\EstadioIQ\EstadioIQ\EstadioIQ.Entity\bin\Debug\net8.0\EstadioIQ.Entity.dll
+D:\Projects\EstadioIQ\EstadioIQ\EstadioIQ.Entity\bin\Debug\net8.0\EstadioIQ.Entity.pdb
+D:\Projects\EstadioIQ\EstadioIQ\EstadioIQ.Entity\obj\Debug\net8.0\EstadioIQ.Entity.GeneratedMSBuildEditorConfig.editorconfig
+D:\Projects\EstadioIQ\EstadioIQ\EstadioIQ.Entity\obj\Debug\net8.0\EstadioIQ.Entity.AssemblyInfoInputs.cache
+D:\Projects\EstadioIQ\EstadioIQ\EstadioIQ.Entity\obj\Debug\net8.0\EstadioIQ.Entity.AssemblyInfo.cs
+D:\Projects\EstadioIQ\EstadioIQ\EstadioIQ.Entity\obj\Debug\net8.0\EstadioIQ.Entity.csproj.CoreCompileInputs.cache
+D:\Projects\EstadioIQ\EstadioIQ\EstadioIQ.Entity\obj\Debug\net8.0\EstadioIQ.Entity.dll
+D:\Projects\EstadioIQ\EstadioIQ\EstadioIQ.Entity\obj\Debug\net8.0\refint\EstadioIQ.Entity.dll
+D:\Projects\EstadioIQ\EstadioIQ\EstadioIQ.Entity\obj\Debug\net8.0\EstadioIQ.Entity.pdb
+D:\Projects\EstadioIQ\EstadioIQ\EstadioIQ.Entity\obj\Debug\net8.0\ref\EstadioIQ.Entity.dll

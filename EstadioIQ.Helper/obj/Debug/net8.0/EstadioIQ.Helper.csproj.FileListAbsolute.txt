@@ -1,0 +1,15 @@
+D:\Projects\EstadioIQ\EstadioIQ\EstadioIQ.Helper\bin\Debug\net8.0\EstadioIQ.Helper.deps.json
+D:\Projects\EstadioIQ\EstadioIQ\EstadioIQ.Helper\bin\Debug\net8.0\EstadioIQ.Helper.dll
+D:\Projects\EstadioIQ\EstadioIQ\EstadioIQ.Helper\bin\Debug\net8.0\EstadioIQ.Helper.pdb
+D:\Projects\EstadioIQ\EstadioIQ\EstadioIQ.Helper\bin\Debug\net8.0\EstadioIQ.Entity.dll
+D:\Projects\EstadioIQ\EstadioIQ\EstadioIQ.Helper\bin\Debug\net8.0\EstadioIQ.Entity.pdb
+D:\Projects\EstadioIQ\EstadioIQ\EstadioIQ.Helper\obj\Debug\net8.0\EstadioIQ.Helper.csproj.AssemblyReference.cache
+D:\Projects\EstadioIQ\EstadioIQ\EstadioIQ.Helper\obj\Debug\net8.0\EstadioIQ.Helper.GeneratedMSBuildEditorConfig.editorconfig
+D:\Projects\EstadioIQ\EstadioIQ\EstadioIQ.Helper\obj\Debug\net8.0\EstadioIQ.Helper.AssemblyInfoInputs.cache
+D:\Projects\EstadioIQ\EstadioIQ\EstadioIQ.Helper\obj\Debug\net8.0\EstadioIQ.Helper.AssemblyInfo.cs
+D:\Projects\EstadioIQ\EstadioIQ\EstadioIQ.Helper\obj\Debug\net8.0\EstadioIQ.Helper.csproj.CoreCompileInputs.cache
+D:\Projects\EstadioIQ\EstadioIQ\EstadioIQ.Helper\obj\Debug\net8.0\EstadioI.8FFA29FB.Up2Date
+D:\Projects\EstadioIQ\EstadioIQ\EstadioIQ.Helper\obj\Debug\net8.0\EstadioIQ.Helper.dll
+D:\Projects\EstadioIQ\EstadioIQ\EstadioIQ.Helper\obj\Debug\net8.0\refint\EstadioIQ.Helper.dll
+D:\Projects\EstadioIQ\EstadioIQ\EstadioIQ.Helper\obj\Debug\net8.0\EstadioIQ.Helper.pdb
+D:\Projects\EstadioIQ\EstadioIQ\EstadioIQ.Helper\obj\Debug\net8.0\ref\EstadioIQ.Helper.dll

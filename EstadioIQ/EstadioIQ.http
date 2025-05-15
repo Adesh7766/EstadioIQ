@@ -1,0 +1,6 @@
+@EstadioIQ_HostAddress = http://localhost:5089
+
+GET {{EstadioIQ_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

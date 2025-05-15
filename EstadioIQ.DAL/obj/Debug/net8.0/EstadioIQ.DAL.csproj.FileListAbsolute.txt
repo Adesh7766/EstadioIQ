@@ -1,0 +1,17 @@
+D:\Projects\EstadioIQ\EstadioIQ\EstadioIQ.DAL\bin\Debug\net8.0\EstadioIQ.DAL.deps.json
+D:\Projects\EstadioIQ\EstadioIQ\EstadioIQ.DAL\bin\Debug\net8.0\EstadioIQ.DAL.runtimeconfig.json
+D:\Projects\EstadioIQ\EstadioIQ\EstadioIQ.DAL\bin\Debug\net8.0\EstadioIQ.DAL.dll
+D:\Projects\EstadioIQ\EstadioIQ\EstadioIQ.DAL\bin\Debug\net8.0\EstadioIQ.DAL.pdb
+D:\Projects\EstadioIQ\EstadioIQ\EstadioIQ.DAL\bin\Debug\net8.0\EstadioIQ.Entity.dll
+D:\Projects\EstadioIQ\EstadioIQ\EstadioIQ.DAL\bin\Debug\net8.0\EstadioIQ.Entity.pdb
+D:\Projects\EstadioIQ\EstadioIQ\EstadioIQ.DAL\obj\Debug\net8.0\EstadioIQ.DAL.csproj.AssemblyReference.cache
+D:\Projects\EstadioIQ\EstadioIQ\EstadioIQ.DAL\obj\Debug\net8.0\EstadioIQ.DAL.GeneratedMSBuildEditorConfig.editorconfig
+D:\Projects\EstadioIQ\EstadioIQ\EstadioIQ.DAL\obj\Debug\net8.0\EstadioIQ.DAL.AssemblyInfoInputs.cache
+D:\Projects\EstadioIQ\EstadioIQ\EstadioIQ.DAL\obj\Debug\net8.0\EstadioIQ.DAL.AssemblyInfo.cs
+D:\Projects\EstadioIQ\EstadioIQ\EstadioIQ.DAL\obj\Debug\net8.0\EstadioIQ.DAL.csproj.CoreCompileInputs.cache
+D:\Projects\EstadioIQ\EstadioIQ\EstadioIQ.DAL\obj\Debug\net8.0\EstadioI.77CF6000.Up2Date
+D:\Projects\EstadioIQ\EstadioIQ\EstadioIQ.DAL\obj\Debug\net8.0\EstadioIQ.DAL.dll
+D:\Projects\EstadioIQ\EstadioIQ\EstadioIQ.DAL\obj\Debug\net8.0\refint\EstadioIQ.DAL.dll
+D:\Projects\EstadioIQ\EstadioIQ\EstadioIQ.DAL\obj\Debug\net8.0\EstadioIQ.DAL.pdb
+D:\Projects\EstadioIQ\EstadioIQ\EstadioIQ.DAL\obj\Debug\net8.0\EstadioIQ.DAL.genruntimeconfig.cache
+D:\Projects\EstadioIQ\EstadioIQ\EstadioIQ.DAL\obj\Debug\net8.0\ref\EstadioIQ.DAL.dll
