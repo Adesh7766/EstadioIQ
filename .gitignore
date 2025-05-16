@@ -15,3 +15,4 @@ secrets.json
 
 # Others
 *.db
+/EstadioIQ/obj/Debug/net8.0/EstadioIQ.API.csproj.BuildWithSkipAnalyzers
