@@ -1,0 +1,17 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs
+# Source link and build cache
+*.sourcelink.json
+*.cache
+
+# User secrets
+secrets.json
+
+# Logs
+*.log
+
+# Others
+*.db
