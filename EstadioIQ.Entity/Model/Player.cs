@@ -27,6 +27,8 @@ namespace EstadioIQ.Entity.Model
         public double AverageRating { get; set; } // e.g., from SofaScore
         public double PassAccuracy { get; set; }
 
+        public bool IsActive { get; set; }
+
         public string PhotoUrl { get; set; } 
 
         public List<MatchPerformance> Performances { get; set; } // Link to match data

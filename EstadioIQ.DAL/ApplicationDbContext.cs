@@ -21,6 +21,7 @@ namespace EstadioIQ.DAL
                     Email = "adesh.pandey1673@gmail.com",
                     PasswordHash = "newpassword",
                     Role = "Admin",
+                    IsActive = true,
                     CreatedDate = new DateTime(2025, 5, 15)
                 }
             );

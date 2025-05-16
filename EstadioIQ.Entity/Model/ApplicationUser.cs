@@ -21,6 +21,8 @@ namespace EstadioIQ.Entity.Model
 
         public string Role { get; set; } = "User";
 
+        public bool IsActive { get; set; }
+
         public DateTime CreatedDate { get; set; } = DateTime.UtcNow;
     }
 }

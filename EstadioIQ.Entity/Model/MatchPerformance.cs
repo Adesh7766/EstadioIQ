@@ -24,6 +24,8 @@ namespace EstadioIQ.Entity.Model
         public int PassesCompleted { get; set; }
         public double Rating { get; set; } // Player performance rating
 
+        public bool IsActive { get; set; }
+
         public bool IsStarter { get; set; }
         public int MinutesPlayed { get; set; }
     }

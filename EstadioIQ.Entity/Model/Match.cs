@@ -22,6 +22,8 @@ namespace EstadioIQ.Entity.Model
         public int HomeScore { get; set; }
         public int AwayScore { get; set; }
 
+        public bool IsActive { get; set; }
+
         public List<MatchPerformance> PlayerPerformances { get; set; } 
 
         public string Venue { get; set; }

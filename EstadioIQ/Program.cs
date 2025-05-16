@@ -4,6 +4,11 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using EstadioIQ.Helper.AuthHelper;
+using EstadioIQ.DAL.Interface;
+using EstadioIQ.DAL.Repository;
+using EstadioIQ.BAL.Services;
+using EstadioIQ.BAL.Interface;
+using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,6 +20,14 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddSingleton<AuthHelper>();
+
+
+//Repositories
+builder.Services.AddScoped<IApplicationUserRepo, ApplicationUserRepo>();
+
+//Services
+builder.Services.AddScoped<IApplicationUserService, ApplicationUserService>();
+
 
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 
@@ -40,6 +53,35 @@ builder.Services.AddAuthentication(cfg => {
         ValidateAudience = false,
         ClockSkew = TimeSpan.Zero
     };
+});
+
+builder.Services.AddSwaggerGen(c =>
+{
+    c.SwaggerDoc("v1", new OpenApiInfo { Title = "Your API", Version = "v1" });
+
+    var securityScheme = new OpenApiSecurityScheme
+    {
+        Name = "Authorization",
+        Type = SecuritySchemeType.Http,
+        Scheme = "bearer",
+        BearerFormat = "JWT",
+        In = ParameterLocation.Header,
+        Description = "Enter JWT token (e.g. Bearer eyJhbGci...)",
+        Reference = new OpenApiReference
+        {
+            Type = ReferenceType.SecurityScheme,
+            Id = "Bearer"
+        }
+    };
+
+    c.AddSecurityDefinition("Bearer", securityScheme);
+
+    var securityRequirement = new OpenApiSecurityRequirement
+    {
+        { securityScheme, Array.Empty<string>() }
+    };
+
+    c.AddSecurityRequirement(securityRequirement);
 });
 
 var app = builder.Build();
