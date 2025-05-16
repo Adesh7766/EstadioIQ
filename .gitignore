@@ -2,17 +2,19 @@
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
 
-/.vs
-# Source link and build cache
-*.sourcelink.json
-*.cache
+# User-specific files
+.vs/
+*.user
+*.suo
 
-# User secrets
-secrets.json
+# Build results
+**/bin/
+**/obj/
+*.dll
+*.pdb
+*.exe
 
-# Logs
-*.log
+# Custom root folders
+/.bin
+/.obj
 
-# Others
-*.db
-/EstadioIQ/obj/Debug/net8.0/EstadioIQ.API.csproj.BuildWithSkipAnalyzers
