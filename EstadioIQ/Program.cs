@@ -24,6 +24,7 @@ builder.Services.AddSingleton<AuthHelper>();
 
 //Repositories
 builder.Services.AddScoped<IApplicationUserRepo, ApplicationUserRepo>();
+builder.Services.AddScoped<IPlayerRepo, PlayerRepo>();
 
 //Services
 builder.Services.AddScoped<IApplicationUserService, ApplicationUserService>();
