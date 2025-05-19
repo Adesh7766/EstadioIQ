@@ -1,7 +1,0 @@
-D:\Projects\EstadioIQ\EstadioIQ\EstadioIQ\obj\Debug\net8.0\EstadioIQ.csproj.AssemblyReference.cache
-D:\Projects\EstadioIQ\EstadioIQ\EstadioIQ\obj\Debug\net8.0\EstadioIQ.GeneratedMSBuildEditorConfig.editorconfig
-D:\Projects\EstadioIQ\EstadioIQ\EstadioIQ\obj\Debug\net8.0\EstadioIQ.AssemblyInfoInputs.cache
-D:\Projects\EstadioIQ\EstadioIQ\EstadioIQ\obj\Debug\net8.0\EstadioIQ.AssemblyInfo.cs
-D:\Projects\EstadioIQ\EstadioIQ\EstadioIQ\obj\Debug\net8.0\EstadioIQ.csproj.CoreCompileInputs.cache
-D:\Projects\EstadioIQ\EstadioIQ\EstadioIQ\obj\Debug\net8.0\EstadioIQ.MvcApplicationPartsAssemblyInfo.cs
-D:\Projects\EstadioIQ\EstadioIQ\EstadioIQ\obj\Debug\net8.0\EstadioIQ.MvcApplicationPartsAssemblyInfo.cache
