@@ -7,14 +7,14 @@ using EstadioIQ.Entity.Common;
 using EstadioIQ.Entity.DTO;
 using EstadioIQ.Entity.Model;
 
-namespace EstadioIQ.DAL.Interface
+namespace EstadioIQ.BAL.Interface
 {
-    public interface IMatchPerformanceRepo
+    public interface IMatchPerformanceService
     {
         ResponseData<List<MatchPerformanceDto>> GetMatchPerformances();
         ResponseData<MatchPerformanceDto> GetMatchPerformanceById(int id);
-        ResponseData UpdateMatchPerformance(MatchPerformance matchPerformance);
+        ResponseData UpdateMatchPerformance(MatchPerformanceDto matchPerformance);
         ResponseData DeleteMatchPerformance(int id);
-        ResponseData AddMatchPerformance(MatchPerformance matchPerformance);
+        ResponseData AddMatchPerformance(MatchPerformanceDto matchPerformance);
     }
 }
