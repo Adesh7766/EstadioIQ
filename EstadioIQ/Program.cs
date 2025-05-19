@@ -28,7 +28,7 @@ builder.Services.AddScoped<IPlayerRepo, PlayerRepo>();
 
 //Services
 builder.Services.AddScoped<IApplicationUserService, ApplicationUserService>();
-
+builder.Services.AddScoped<IPlayerService, PlayerService>();
 
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 
