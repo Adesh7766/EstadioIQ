@@ -15,6 +15,7 @@ namespace EstadioIQ.Entity.DTO
         public string Competition { get; set; }
         public int HomeScore { get; set; }
         public int AwayScore { get; set; }
+        public bool IsActive { get; set; }
         public string Venue { get; set; }
 
         public List<MatchPerformanceDto> PlayerPerformances { get; set; }

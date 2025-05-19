@@ -5,16 +5,19 @@ using System.Text;
 using System.Threading.Tasks;
 using EstadioIQ.Entity.Common;
 using EstadioIQ.Entity.DTO;
-using EstadioIQ.Entity.Model;
 
-namespace EstadioIQ.DAL.Interface
+namespace EstadioIQ.BAL.Interface
 {
-    public interface IMatchRepo
+    public interface IMatchService
     {
         ResponseData<List<MatchDto>> GetMatches();
+
         ResponseData<MatchDto> GetMatchById(int id);
-        ResponseData UpdateMatch(Match match);
+
+        ResponseData UpdateMatch(MatchDto match);
+
         ResponseData DeleteMatch(int id);
-        ResponseData AddMatch(Match match);
+
+        ResponseData AddMatch(MatchDto match);
     }
 }

@@ -85,7 +85,7 @@ namespace EstadioIQ.BAL.Services
 
         public ResponseData AddPlayer(PlayerDto player)
         {
-            Player dbUser = new Player
+            Player dbPlayer = new Player
             {
                 Name = player.Name,
                 Age = player.Age,
@@ -101,7 +101,7 @@ namespace EstadioIQ.BAL.Services
                 PhotoUrl = player.PhotoUrl
             };
 
-            var response = _repo.AddPlayer(dbUser);
+            var response = _repo.AddPlayer(dbPlayer);
 
             return new ResponseData
             {
