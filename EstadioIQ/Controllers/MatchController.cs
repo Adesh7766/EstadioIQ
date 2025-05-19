@@ -9,6 +9,7 @@ namespace EstadioIQ.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class MatchController : ControllerBase
     {
         private readonly IMatchService _service;
@@ -18,8 +19,7 @@ namespace EstadioIQ.API.Controllers
             _service = service;
         }
 
-        [HttpGet("GetAllMatches")]
-        [Authorize]
+        [HttpGet("GetAllMatches")]        
         public ResponseData<List<MatchDto>> GetMatches()
         {
             var response = _service.GetMatches();

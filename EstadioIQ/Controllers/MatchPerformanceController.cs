@@ -10,21 +10,21 @@ namespace EstadioIQ.API.Controllers
     [Route("api/[controller]")]
     [ApiController]
     [Authorize]
-    public class PlayerController : ControllerBase
+    public class MatchPerformanceController : ControllerBase
     {
-        private readonly IPlayerService _service;
+        private readonly IMatchPerformanceService _service;
 
-        public PlayerController(IPlayerService service)
+        public MatchPerformanceController(IMatchPerformanceService service)
         {
             _service = service;
         }
 
-        [HttpGet("GetAllPlayers")]
-        public ResponseData<List<PlayerDto>> GetPlayers()
+        [HttpGet("GetAllMatchPerformances")]
+        public ResponseData<List<MatchPerformanceDto>> GetMatchPerformances()
         {
-            var response = _service.GetPlayers();
+            var response = _service.GetMatchPerformances();
 
-            return new ResponseData<List<PlayerDto>>
+            return new ResponseData<List<MatchPerformanceDto>>
             {
                 SuccessStatus = response.SuccessStatus,
                 Message = response.Message,
@@ -33,12 +33,12 @@ namespace EstadioIQ.API.Controllers
         }
 
 
-        [HttpGet("GetPlayerById")]
-        public ResponseData<PlayerDto> GetPlayerById(int id)
+        [HttpGet("GetMatchPerformanceById")]
+        public ResponseData<MatchPerformanceDto> GetMatchPerformanceById(int id)
         {
-            var response = _service.GetPlayerById(id);
+            var response = _service.GetMatchPerformanceById(id);
 
-            return new ResponseData<PlayerDto>
+            return new ResponseData<MatchPerformanceDto>
             {
                 SuccessStatus = response.SuccessStatus,
                 Message = response.Message,
@@ -46,10 +46,10 @@ namespace EstadioIQ.API.Controllers
             };
         }
 
-        [HttpPost("UpdatePlayer")]
-        public ResponseData UpdatePlayer([FromBody] PlayerDto Player)
+        [HttpPost("UpdateMatchPerformance")]
+        public ResponseData UpdateMatchPerformance([FromBody] MatchPerformanceDto matchPerformance)
         {
-            var response = _service.UpdatePlayer(Player);
+            var response = _service.UpdateMatchPerformance(matchPerformance);
 
             return new ResponseData
             {
@@ -59,10 +59,10 @@ namespace EstadioIQ.API.Controllers
             };
         }
 
-        [HttpGet("DeletePlayer")]
-        public ResponseData DeletePlayer(int id)
+        [HttpGet("DeleteMatchPerformance")]
+        public ResponseData DeleteMatchPerformance(int id)
         {
-            var response = _service.DeletePlayer(id);
+            var response = _service.DeleteMatchPerformance(id);
 
             return new ResponseData
             {
@@ -72,10 +72,10 @@ namespace EstadioIQ.API.Controllers
             };
         }
 
-        [HttpPost("AddPlayer")]
-        public ResponseData AddPlayer([FromBody] PlayerDto player)
+        [HttpPost("AddMatchPerformance")]
+        public ResponseData AddMatchPerformance([FromBody] MatchPerformanceDto matchPerformance)
         {
-            var response = _service.AddPlayer(player);
+            var response = _service.AddMatchPerformance(matchPerformance);
 
             return new ResponseData
             {
