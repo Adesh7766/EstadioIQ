@@ -64,7 +64,7 @@ namespace EstadioIQ.DAL.Repository
                 PhotoUrl = x.PhotoUrl
             }).FirstOrDefault();
 
-            if (user == null)
+            if (player == null)
             {
                 return new ResponseData<PlayerDto>
                 {
