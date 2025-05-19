@@ -25,10 +25,12 @@ builder.Services.AddSingleton<AuthHelper>();
 //Repositories
 builder.Services.AddScoped<IApplicationUserRepo, ApplicationUserRepo>();
 builder.Services.AddScoped<IPlayerRepo, PlayerRepo>();
+builder.Services.AddScoped<IMatchRepo, MatchRepo>();
 
 //Services
 builder.Services.AddScoped<IApplicationUserService, ApplicationUserService>();
 builder.Services.AddScoped<IPlayerService, PlayerService>();
+builder.Services.AddScoped<IMatchService, MatchService>();
 
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 

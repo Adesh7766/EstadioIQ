@@ -41,7 +41,7 @@ namespace EstadioIQ.DAL.Repository
             return new ResponseData<List<PlayerDto>>
             {
                 SuccessStatus = true,
-                Message = "List of all users.",
+                Message = "List of all players.",
                 Data = players
             };
         }
@@ -111,7 +111,7 @@ namespace EstadioIQ.DAL.Repository
             return new ResponseData
             {
                 SuccessStatus = false,
-                Message = "User not found."
+                Message = "Player not found."
             };
         }
 
@@ -124,7 +124,7 @@ namespace EstadioIQ.DAL.Repository
                 return new ResponseData
                 {
                     SuccessStatus = false,
-                    Message = "player not found."
+                    Message = "Player not found."
                 };
             }
 
