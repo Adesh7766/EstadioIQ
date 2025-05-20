@@ -49,6 +49,15 @@ namespace EstadioIQ.API.Controllers
         [HttpPost("UpdatePlayer")]
         public ResponseData UpdatePlayer([FromBody] PlayerDto Player)
         {
+            if (!ModelState.IsValid)
+            {
+                return new ResponseData
+                {
+                    SuccessStatus = false,
+                    Message = "Please provide valid data."
+                };
+            }
+
             var response = _service.UpdatePlayer(Player);
 
             return new ResponseData
@@ -75,6 +84,15 @@ namespace EstadioIQ.API.Controllers
         [HttpPost("AddPlayer")]
         public ResponseData AddPlayer([FromBody] PlayerDto player)
         {
+            if (!ModelState.IsValid)
+            {
+                return new ResponseData
+                {
+                    SuccessStatus = false,
+                    Message = "Please provide valid data."
+                };
+            }
+
             var response = _service.AddPlayer(player);
 
             return new ResponseData

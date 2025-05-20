@@ -49,6 +49,15 @@ namespace EstadioIQ.API.Controllers
         [HttpPost("UpdateMatchPerformance")]
         public ResponseData UpdateMatchPerformance([FromBody] MatchPerformanceDto matchPerformance)
         {
+            if (!ModelState.IsValid)
+            {
+                return new ResponseData
+                {
+                    SuccessStatus = false,
+                    Message = "Please provide valid data."
+                };
+            }
+
             var response = _service.UpdateMatchPerformance(matchPerformance);
 
             return new ResponseData
@@ -75,6 +84,15 @@ namespace EstadioIQ.API.Controllers
         [HttpPost("AddMatchPerformance")]
         public ResponseData AddMatchPerformance([FromBody] MatchPerformanceDto matchPerformance)
         {
+            if (!ModelState.IsValid)
+            {
+                return new ResponseData
+                {
+                    SuccessStatus = false,
+                    Message = "Please provide valid data."
+                };
+            }
+
             var response = _service.AddMatchPerformance(matchPerformance);
 
             return new ResponseData

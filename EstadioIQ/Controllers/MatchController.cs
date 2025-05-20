@@ -49,6 +49,15 @@ namespace EstadioIQ.API.Controllers
         [HttpPost("UpdateMatch")]
         public ResponseData UpdateMatch([FromBody] MatchDto Match)
         {
+            if (!ModelState.IsValid)
+            {
+                return new ResponseData
+                {
+                    SuccessStatus = false,
+                    Message = "Please provide valid data."
+                };
+            }
+
             var response = _service.UpdateMatch(Match);
 
             return new ResponseData
@@ -75,6 +84,15 @@ namespace EstadioIQ.API.Controllers
         [HttpPost("AddMatch")]
         public ResponseData AddMatch([FromBody] MatchDto match)
         {
+            if (!ModelState.IsValid)
+            {
+                return new ResponseData
+                {
+                    SuccessStatus = false,
+                    Message = "Please provide valid data."
+                };
+            }
+
             var response = _service.AddMatch(match);
 
             return new ResponseData

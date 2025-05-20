@@ -25,6 +25,16 @@ namespace EstadioIQ.API.Controllers
         [HttpPost("login")]
         public ResponseData Login([FromBody] LoginDto user)
         {
+
+            if (!ModelState.IsValid)
+            {
+                return new ResponseData
+                {
+                    SuccessStatus = false,
+                    Message = "Please provide valid data."
+                };
+            }
+
             var userFromDb = _dbContext.Users.
                                 Where(u => u.Email == user.Email && u.PasswordHash == user.Password)
                                 .FirstOrDefault();
