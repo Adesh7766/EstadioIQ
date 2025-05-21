@@ -63,6 +63,7 @@ namespace EstadioIQ.BAL.Services
         {
             Match dbData = new Match
             {
+                Id = match.Id,
                 HomeTeam = match.HomeTeam,
                 AwayTeam = match.AwayTeam,
                 MatchDate = match.MatchDate,

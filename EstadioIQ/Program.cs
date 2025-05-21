@@ -9,6 +9,7 @@ using EstadioIQ.DAL.Repository;
 using EstadioIQ.BAL.Services;
 using EstadioIQ.BAL.Interface;
 using Microsoft.OpenApi.Models;
+using Microsoft.Extensions.FileProviders;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -95,6 +96,13 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseStaticFiles(new StaticFileOptions
+{
+    FileProvider = new PhysicalFileProvider(
+        Path.Combine(builder.Environment.ContentRootPath, "Uploads")),
+    RequestPath = "/playerImage"
+});
 
 app.UseAuthentication();
 

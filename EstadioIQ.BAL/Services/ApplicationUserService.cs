@@ -48,6 +48,7 @@ namespace EstadioIQ.BAL.Services
         {
             ApplicationUser dbData = new ApplicationUser
             {
+                Id = user.Id,
                 UserName = user.Username,
                 Email = user.Email,
                 Role = user.Role
