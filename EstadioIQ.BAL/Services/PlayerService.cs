@@ -21,9 +21,24 @@ namespace EstadioIQ.BAL.Services
             _repo = repo;
         }
 
-        public ResponseData<List<PlayerDto>> GetPlayers()
+        public ResponseData<List<PlayerDto>> GetPlayers(
+                                                string? name,
+                                                string? position,
+                                                string? nationality,
+                                                int? minAge,
+                                                int? maxAge,
+                                                double? minRating,
+                                                int page,
+                                                int size)
         {
-            var response = _repo.GetPlayers();
+            var response = _repo.GetPlayers(name,
+                                            position,
+                                            nationality,
+                                            minAge,
+                                            maxAge,
+                                            minRating,
+                                            page,
+                                            size);
 
             return new ResponseData<List<PlayerDto>>
             {

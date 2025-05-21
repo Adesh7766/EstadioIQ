@@ -10,7 +10,14 @@ namespace EstadioIQ.BAL.Interface
 {
     public interface IPlayerService
     {
-        ResponseData<List<PlayerDto>> GetPlayers();
+        ResponseData<List<PlayerDto>> GetPlayers(string? name,
+                                                string? position,
+                                                string? nationality,
+                                                int? minAge,
+                                                int? maxAge,
+                                                double? minRating,
+                                                int page,
+                                                int size);
 
         ResponseData<PlayerDto> GetPlayerById(int id);
 

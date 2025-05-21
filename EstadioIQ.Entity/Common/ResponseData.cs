@@ -13,6 +13,8 @@ namespace EstadioIQ.Entity.Common
         public string Message { get; set; }
 
         public object Data { get; set; }
+
+        public int? TotalCount { get; set; }
     }
 
     public class ResponseData<T>
@@ -22,5 +24,7 @@ namespace EstadioIQ.Entity.Common
         public string Message { get; set; }
 
         public T Data { get; set; }
+
+        public int? TotalCount { get; set; }
     }
 }
