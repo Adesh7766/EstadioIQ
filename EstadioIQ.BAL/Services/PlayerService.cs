@@ -66,6 +66,7 @@ namespace EstadioIQ.BAL.Services
         {
             Player dbData = new Player
             {
+                Id = player.Id,
                 Name = player.Name,
                 Age = player.Age,
                 Nationality = player.Nationality,

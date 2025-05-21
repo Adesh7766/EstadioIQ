@@ -1,9 +1,12 @@
-﻿using EstadioIQ.BAL.Interface;
+﻿using System.Threading.Tasks;
+using EstadioIQ.BAL.Interface;
 using EstadioIQ.Entity.Common;
 using EstadioIQ.Entity.DTO;
+using EstadioIQ.Entity.Model;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace EstadioIQ.API.Controllers
 {
@@ -13,10 +16,12 @@ namespace EstadioIQ.API.Controllers
     public class PlayerController : ControllerBase
     {
         private readonly IPlayerService _service;
+        private readonly IWebHostEnvironment _env;
 
-        public PlayerController(IPlayerService service)
+        public PlayerController(IPlayerService service, IWebHostEnvironment env)
         {
             _service = service;
+            _env = env;
         }
 
         [HttpGet("GetAllPlayers")]
@@ -64,7 +69,7 @@ namespace EstadioIQ.API.Controllers
         }
 
         [HttpPost("UpdatePlayer")]
-        public ResponseData UpdatePlayer([FromBody] PlayerDto Player)
+        public async Task<ResponseData> UpdatePlayer([FromForm] PlayerDto Player, IFormFile? image)
         {
             if (!ModelState.IsValid)
             {
@@ -73,6 +78,25 @@ namespace EstadioIQ.API.Controllers
                     SuccessStatus = false,
                     Message = "Please provide valid data."
                 };
+            }
+
+            if (image != null && image.Length > 0)
+            {
+                var uploadFolder = Path.Combine(_env.ContentRootPath, "Uploads", "playerImages");
+
+                if (!Directory.Exists(uploadFolder))
+                    Directory.CreateDirectory(uploadFolder);
+
+                var fileName = Path.GetFileName(image.FileName);
+
+                var filePath = Path.Combine(uploadFolder, fileName);
+
+                using (var stream = new FileStream(filePath, FileMode.Create))
+                {
+                    await image.CopyToAsync(stream);
+                }
+
+                Player.PhotoUrl = $"Uploads/playerImages/{fileName}";
             }
 
             var response = _service.UpdatePlayer(Player);
@@ -99,7 +123,7 @@ namespace EstadioIQ.API.Controllers
         }
 
         [HttpPost("AddPlayer")]
-        public ResponseData AddPlayer([FromBody] PlayerDto player)
+        public async Task<ResponseData> AddPlayer([FromForm] PlayerDto player, IFormFile? image)
         {
             if (!ModelState.IsValid)
             {
@@ -108,6 +132,25 @@ namespace EstadioIQ.API.Controllers
                     SuccessStatus = false,
                     Message = "Please provide valid data."
                 };
+            }
+
+            if(image != null && image.Length > 0)
+            {
+                var uploadFolder = Path.Combine(_env.ContentRootPath, "Uploads", "playerImages");
+
+                if (!Directory.Exists(uploadFolder))
+                    Directory.CreateDirectory(uploadFolder);
+
+                var fileName = Path.GetFileName(image.FileName);
+
+                var filePath = Path.Combine(uploadFolder, fileName);
+
+                using (var stream = new FileStream(filePath, FileMode.Create))
+                {
+                    await image.CopyToAsync(stream);
+                }
+
+                player.PhotoUrl = $"Uploads/playerImages/{fileName}";
             }
 
             var response = _service.AddPlayer(player);
