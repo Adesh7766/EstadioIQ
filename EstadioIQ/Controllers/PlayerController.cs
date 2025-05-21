@@ -20,9 +20,25 @@ namespace EstadioIQ.API.Controllers
         }
 
         [HttpGet("GetAllPlayers")]
-        public ResponseData<List<PlayerDto>> GetPlayers()
+        public ResponseData<List<PlayerDto>> GetPlayers(
+                                                string? name,
+                                                string? position,
+                                                string? nationality,
+                                                int? minAge,
+                                                int? maxAge,
+                                                double? minRating,
+                                                int page = 1,
+                                                int size = 10)
         {
-            var response = _service.GetPlayers();
+            var response = _service.GetPlayers(name,
+                                                position,
+                                                nationality,
+                                                minAge,
+                                                maxAge,
+                                                minRating,
+                                                page,
+                                                size
+                                                );
 
             return new ResponseData<List<PlayerDto>>
             {

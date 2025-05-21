@@ -20,9 +20,43 @@ namespace EstadioIQ.DAL.Repository
             _context = context;
         }
 
-        public ResponseData<List<PlayerDto>> GetPlayers()
+        public ResponseData<List<PlayerDto>> GetPlayers(
+                                                string? name,
+                                                string? position,
+                                                string? nationality,
+                                                int? minAge,
+                                                int? maxAge,
+                                                double? minRating,
+                                                int page,
+                                                int size)
         {
-            var players = _context.Players.Where(x => x.IsActive == true).Select(x => new PlayerDto
+            var query = _context.Players.Where(x => x.IsActive == true);
+
+
+            if (!string.IsNullOrEmpty(name))
+                query = query.Where(x => x.Name.Contains(name));
+
+            if (!string.IsNullOrEmpty(position))
+                query = query.Where(x => x.Position.Contains(position));
+
+            if (!string.IsNullOrEmpty(nationality))
+                query = query.Where(x => x.Nationality.Contains(nationality));
+
+            if (minAge.HasValue)
+                query = query.Where(x => x.Age >= minAge);
+
+            if (maxAge.HasValue)
+                query = query.Where(x => x.Age <= maxAge);
+
+            if (minRating.HasValue)
+                query = query.Where(x => x.AverageRating >= minRating);
+
+            int totalCount = query.Count();
+
+            var players = query
+                .Skip((page - 1) * size)
+                .Take(size)
+                .Select(x => new PlayerDto
             {
                 Id = x.Id,
                 Name = x.Name,
