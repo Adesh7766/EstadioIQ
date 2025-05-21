@@ -20,15 +20,28 @@ namespace EstadioIQ.API.Controllers
         }
 
         [HttpGet("GetAllMatches")]        
-        public ResponseData<List<MatchDto>> GetMatches()
+        public ResponseData<List<MatchDto>> GetMatches(string? homeTeam,
+                                                       string? awayTeam,
+                                                       DateTime? matchDate,
+                                                       string? competetion,
+                                                       string? venue,
+                                                       int page = 1,
+                                                       int size = 10)
         {
-            var response = _service.GetMatches();
+            var response = _service.GetMatches(homeTeam,
+                                               awayTeam,
+                                               matchDate,
+                                               competetion,
+                                               venue,
+                                               page,
+                                               size);
 
             return new ResponseData<List<MatchDto>>
             {
                 SuccessStatus = response.SuccessStatus,
                 Message = response.Message,
-                Data = response.Data
+                Data = response.Data,
+                TotalCount = response.TotalCount
             };
         }
 

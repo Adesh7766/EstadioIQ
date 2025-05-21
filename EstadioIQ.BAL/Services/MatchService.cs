@@ -21,15 +21,28 @@ namespace EstadioIQ.BAL.Services
             _repo = repo;
         }
 
-        public ResponseData<List<MatchDto>> GetMatches()
+        public ResponseData<List<MatchDto>> GetMatches(string? homeTeam,
+                                                string? awayTeam,
+                                                DateTime? matchDate,
+                                                string? competetion,
+                                                string? venue,
+                                                int page,
+                                                int size)
         {
-            var response = _repo.GetMatches();
+            var response = _repo.GetMatches(homeTeam,
+                                            awayTeam,
+                                            matchDate,
+                                            competetion,
+                                            venue,
+                                            page,
+                                            size);
 
             return new ResponseData<List<MatchDto>>
             {
                 SuccessStatus = response.SuccessStatus,
                 Message = response.Message,
-                Data = response.Data
+                Data = response.Data,
+                TotalCount = response.TotalCount
             };
         }
 

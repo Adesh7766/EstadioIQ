@@ -44,7 +44,8 @@ namespace EstadioIQ.BAL.Services
             {
                 SuccessStatus = response.SuccessStatus,
                 Message = response.Message,
-                Data = response.Data
+                Data = response.Data,
+                TotalCount = response.TotalCount
             };
         }
 

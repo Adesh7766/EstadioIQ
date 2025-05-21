@@ -10,7 +10,13 @@ namespace EstadioIQ.BAL.Interface
 {
     public interface IMatchService
     {
-        ResponseData<List<MatchDto>> GetMatches();
+        ResponseData<List<MatchDto>> GetMatches(string? homeTeam,
+                                                       string? awayTeam,
+                                                       DateTime? matchDate,
+                                                       string? competetion,
+                                                       string? venue,
+                                                       int page,
+                                                       int size);
 
         ResponseData<MatchDto> GetMatchById(int id);
 

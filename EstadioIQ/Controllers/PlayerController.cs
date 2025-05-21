@@ -44,7 +44,8 @@ namespace EstadioIQ.API.Controllers
             {
                 SuccessStatus = response.SuccessStatus,
                 Message = response.Message,
-                Data = response.Data
+                Data = response.Data,
+                TotalCount = response.TotalCount
             };
         }
 
