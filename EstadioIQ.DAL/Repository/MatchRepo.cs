@@ -19,26 +19,55 @@ namespace EstadioIQ.DAL.Repository
             _context = context;
         }
 
-        public ResponseData<List<MatchDto>> GetMatches()
+        public ResponseData<List<MatchDto>> GetMatches(string? homeTeam,
+                                                       string? awayTeam,
+                                                       DateTime? matchDate,
+                                                       string? competetion,
+                                                       string? venue,
+                                                       int page,
+                                                       int size)
         {
-            var matches = _context.Matches.Where(x => x.IsActive == true).Select(x => new MatchDto
-            {
-                Id = x.Id,
-                HomeTeam = x.HomeTeam,
-                AwayTeam = x.AwayTeam,
-                MatchDate = x.MatchDate,
-                Competition = x.Competition,
-                HomeScore = x.HomeScore,
-                AwayScore = x.AwayScore,
-                IsActive = x.IsActive,
-                Venue = x.Venue
-            }).ToList();
+            var query = _context.Matches.Where(x => x.IsActive == true);
+
+            if (!string.IsNullOrEmpty(homeTeam))
+                query = query.Where(x => x.HomeTeam.Contains(homeTeam));
+
+            if (!string.IsNullOrEmpty(awayTeam))
+                query = query.Where(x => x.AwayTeam.Contains(awayTeam));
+
+            if (matchDate.HasValue)
+                query = query.Where(x => x.MatchDate == matchDate);
+
+            if (!string.IsNullOrEmpty(competetion))
+                query = query.Where(x => x.Competition.Contains(competetion));
+
+            if (!string.IsNullOrEmpty(venue))
+                query = query.Where(x => x.Venue.Contains(venue));
+
+            var totalCount = query.Count();
+
+            var matches = query
+                    .Skip((page - 1) * size)
+                    .Take(size)
+                    .Select(x => new MatchDto
+                    {
+                        Id = x.Id,
+                        HomeTeam = x.HomeTeam,
+                        AwayTeam = x.AwayTeam,
+                        MatchDate = x.MatchDate,
+                        Competition = x.Competition,
+                        HomeScore = x.HomeScore,
+                        AwayScore = x.AwayScore,
+                        IsActive = x.IsActive,
+                        Venue = x.Venue
+                    }).ToList();
 
             return new ResponseData<List<MatchDto>>
             {
                 SuccessStatus = true,
-                Message = "List of all matches.",
-                Data = matches
+                Message = $"Page {page} of all matches.",
+                Data = matches,
+                TotalCount = totalCount
             };
         }
 

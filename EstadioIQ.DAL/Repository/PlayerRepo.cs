@@ -75,8 +75,9 @@ namespace EstadioIQ.DAL.Repository
             return new ResponseData<List<PlayerDto>>
             {
                 SuccessStatus = true,
-                Message = "List of all players.",
-                Data = players
+                Message = $"Page {page} of all players.",
+                Data = players,
+                TotalCount = totalCount
             };
         }
 
