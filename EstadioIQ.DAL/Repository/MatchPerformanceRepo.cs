@@ -185,5 +185,40 @@ namespace EstadioIQ.DAL.Repository
                 Message = "MatchPerformance Added successfully."
             };
         }
+
+        public ResponseData<List<PlayerDto>> GetBestPerformingPlayers(int minMatches, string position, int page, int size)
+        {
+            var topPerformers =  _context.MatchPerformances.Where(x => x.IsActive == true && x.Player.Position.Contains(position) && x.Player.MatchesPlayed >= minMatches)
+                                                          .GroupBy(mp => new { mp.PlayerId, mp.Player.Name } )
+                                                          .Select(group => new PlayerDto
+                                                          {
+                                                              Id = group.Key.PlayerId,
+                                                              Name = group.Key.Name,
+                                                              TotalGoals = group.Sum(mp => mp.Goals),
+                                                              TotalAssists = group.Sum(mp => mp.Assists),
+                                                              AverageRating = group.Average(mp => mp.Rating),
+                                                              TotalScore = group.Sum(mp => mp.Goals * 4 + mp.Assists * 3 + mp.Rating)
+                                                          })
+                                                          .OrderByDescending(x => x.TotalScore)
+                                                          .Skip((page - 1) * size)
+                                                          .Take(size)
+                                                          .ToList();
+
+            if(topPerformers != null)
+            {
+                return new ResponseData<List<PlayerDto>>
+                {
+                    SuccessStatus = true,
+                    Message = "Top Performers.",
+                    Data = topPerformers
+                };
+            }
+
+            return new ResponseData<List<PlayerDto>>
+            {
+                SuccessStatus = false,
+                Message = "Data not available, please contact administrator."
+            };
+        }
     }
 }

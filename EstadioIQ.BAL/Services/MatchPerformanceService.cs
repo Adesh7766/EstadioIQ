@@ -11,7 +11,7 @@ using EstadioIQ.Entity.Model;
 
 namespace EstadioIQ.BAL.Services
 {
-    public class MatchPerformanceService
+    public class MatchPerformanceService : IMatchPerformanceService
     {
         private readonly IMatchPerformanceRepo _repo;
 
@@ -101,6 +101,18 @@ namespace EstadioIQ.BAL.Services
             {
                 SuccessStatus = response.SuccessStatus,
                 Message = response.Message
+            };
+        }
+
+        public ResponseData<List<PlayerDto>> GetBestPerformingPlayers(int minMatches, string position, int page, int size)
+        {
+            var resoponse = _repo.GetBestPerformingPlayers(minMatches, position, page, size);
+
+            return new ResponseData<List<PlayerDto>>
+            {
+                SuccessStatus = resoponse.SuccessStatus,
+                Message = resoponse.Message,
+                Data = resoponse.Data
             };
         }
     }

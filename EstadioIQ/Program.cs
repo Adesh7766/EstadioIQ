@@ -27,11 +27,13 @@ builder.Services.AddSingleton<AuthHelper>();
 builder.Services.AddScoped<IApplicationUserRepo, ApplicationUserRepo>();
 builder.Services.AddScoped<IPlayerRepo, PlayerRepo>();
 builder.Services.AddScoped<IMatchRepo, MatchRepo>();
+builder.Services.AddScoped<IMatchPerformanceRepo, MatchPerformanceRepo>();
 
 //Services
 builder.Services.AddScoped<IApplicationUserService, ApplicationUserService>();
 builder.Services.AddScoped<IPlayerService, PlayerService>();
 builder.Services.AddScoped<IMatchService, MatchService>();
+builder.Services.AddScoped<IMatchPerformanceService, MatchPerformanceService>();
 
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 
