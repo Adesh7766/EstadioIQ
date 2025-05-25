@@ -16,5 +16,6 @@ namespace EstadioIQ.BAL.Interface
         ResponseData UpdateMatchPerformance(MatchPerformanceDto matchPerformance);
         ResponseData DeleteMatchPerformance(int id);
         ResponseData AddMatchPerformance(MatchPerformanceDto matchPerformance);
+        ResponseData<List<PlayerDto>> GetBestPerformingPlayers(int minMatches, string position, int page, int size);
     }
 }

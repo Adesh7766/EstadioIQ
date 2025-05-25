@@ -102,5 +102,27 @@ namespace EstadioIQ.API.Controllers
                 Data = response.Data
             };
         }
+
+        [HttpPost("BestPerformingPlayers")]
+        public ResponseData<List<PlayerDto>> GetBestPerformingPlayers(int minMatches, string position, int page = 1, int size = 10)
+        {
+            if (!ModelState.IsValid)
+            {
+                return new ResponseData<List<PlayerDto>>
+                {
+                    SuccessStatus = false,
+                    Message = "Please provide valid data."
+                };
+            }
+
+            var response = _service.GetBestPerformingPlayers(minMatches, position, page, size);
+
+            return new ResponseData<List<PlayerDto>>
+            {
+                SuccessStatus = response.SuccessStatus,
+                Message = response.Message,
+                Data = response.Data
+            };
+        }
     }
 }
