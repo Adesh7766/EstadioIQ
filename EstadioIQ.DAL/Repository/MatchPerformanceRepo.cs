@@ -220,5 +220,33 @@ namespace EstadioIQ.DAL.Repository
                 Message = "Data not available, please contact administrator."
             };
         }
+
+        public ResponseData GetPlayerWithMostGA()
+        {
+            var player = _context.MatchPerformances
+                                 .GroupBy(x => x.PlayerId)
+                                 .Select(g => new
+                                 {
+                                     PlayerID = g.Key,
+                                     TotalGoals = g.Sum(x => x.Goals),
+                                     TotalAssists = g.Sum(x => x.Assists),
+                                     TotalContribution = g.Sum(x => x.Goals) + g.Sum(x => x.Assists)
+                                 });
+            if (player == null)
+            {
+                return new ResponseData
+                {
+                    SuccessStatus = false,
+                    Message = "No data found."
+                };
+            }
+
+            return new ResponseData
+            {
+                SuccessStatus = true,
+                Message = "Player with most G/A.",
+                Data = player
+            };
+        }
     }
 }

@@ -17,5 +17,6 @@ namespace EstadioIQ.DAL.Interface
         ResponseData DeleteMatchPerformance(int id);
         ResponseData AddMatchPerformance(MatchPerformance matchPerformance);
         ResponseData<List<PlayerDto>> GetBestPerformingPlayers(int minMatches, string position, int page, int size);
+        ResponseData GetPlayerWithMostGA();
     }
 }
