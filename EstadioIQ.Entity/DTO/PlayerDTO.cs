@@ -36,8 +36,8 @@ namespace EstadioIQ.Entity.DTO
         public double AverageRating { get; set; }
         public double PassAccuracy { get; set; }
         public string PhotoUrl { get; set; }
-
         public double TotalScore { get; set; }
+        public int TotalGA { get; set; }
     }
 
 }

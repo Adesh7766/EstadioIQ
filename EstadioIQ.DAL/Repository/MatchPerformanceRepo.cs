@@ -223,15 +223,16 @@ namespace EstadioIQ.DAL.Repository
 
         public ResponseData GetPlayerWithMostGA()
         {
-            var player = _context.MatchPerformances
-                                 .GroupBy(x => x.PlayerId)
-                                 .Select(g => new
+            List<PlayerDto> player = _context.MatchPerformances
+                                 .GroupBy(x => new { x.PlayerId, x.Player.Name })
+                                 .Select(g => new PlayerDto
                                  {
-                                     PlayerID = g.Key,
+                                     Id = g.Key.PlayerId,
+                                     Name = g.Key.Name,
                                      TotalGoals = g.Sum(x => x.Goals),
                                      TotalAssists = g.Sum(x => x.Assists),
-                                     TotalContribution = g.Sum(x => x.Goals) + g.Sum(x => x.Assists)
-                                 });
+                                     TotalGA = g.Sum(x => x.Goals) + g.Sum(x => x.Assists)
+                                 }).ToList();
             if (player == null)
             {
                 return new ResponseData
@@ -245,7 +246,7 @@ namespace EstadioIQ.DAL.Repository
             {
                 SuccessStatus = true,
                 Message = "Player with most G/A.",
-                Data = player
+                Data = player.Where(max => max.TotalGA == player.Max(x => x.TotalGA)).FirstOrDefault()
             };
         }
     }
