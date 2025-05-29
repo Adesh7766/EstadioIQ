@@ -12,5 +12,6 @@ namespace EstadioIQ.BAL.Interface
         ResponseData AddMatchPerformance(MatchPerformanceDto matchPerformance);
         ResponseData<List<PlayerDto>> GetBestPerformingPlayers(int minMatches, string position, int page, int size);
         ResponseData GetPlayerWithMostGA();
+        ResponseData<List<PlayerFormDto>> GetPlayerForm(int numberOfMatches, int id);
     }
 }

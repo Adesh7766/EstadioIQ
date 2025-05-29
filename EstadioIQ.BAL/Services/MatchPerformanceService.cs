@@ -127,5 +127,17 @@ namespace EstadioIQ.BAL.Services
                 Data = response.Data
             };
         }
+
+        public ResponseData<List<PlayerFormDto>> GetPlayerForm(int numberOfMatches, int id)
+        {
+            var response = _repo.GetPlayerForm(numberOfMatches, id);
+
+            return new ResponseData<List<PlayerFormDto>>
+            {
+                SuccessStatus = response.SuccessStatus,
+                Message = response.Message,
+                Data = response.Data
+            };
+        }
     }
 }

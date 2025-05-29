@@ -137,5 +137,18 @@ namespace EstadioIQ.API.Controllers
                 Data = response.Data
             };
         }
+
+        [HttpGet("GetPlayerForm")]
+        public ResponseData<List<PlayerFormDto>> GetPlayerForm(int numberOfMatches, int id)
+        {
+            var response = _service.GetPlayerForm(numberOfMatches, id);
+
+            return new ResponseData<List<PlayerFormDto>>
+            {
+                SuccessStatus = response.SuccessStatus,
+                Message = response.Message,
+                Data = response.Data
+            };
+        }
     }
 }
