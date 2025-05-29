@@ -115,5 +115,17 @@ namespace EstadioIQ.BAL.Services
                 Data = resoponse.Data
             };
         }
+
+        public ResponseData GetPlayerWithMostGA()
+        {
+            var response = _repo.GetPlayerWithMostGA();
+
+            return new ResponseData
+            {
+                SuccessStatus = response.SuccessStatus,
+                Message = response.Message,
+                Data = response.Data
+            };
+        }
     }
 }

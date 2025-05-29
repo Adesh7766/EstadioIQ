@@ -124,5 +124,18 @@ namespace EstadioIQ.API.Controllers
                 Data = response.Data
             };
         }
+
+        [HttpGet("PlayerWithMostGA")]
+        public ResponseData GetPlayerWithMostGA()
+        {
+            var response = _service.GetPlayerWithMostGA();
+
+            return new ResponseData
+            {
+                SuccessStatus = response.SuccessStatus,
+                Message = response.Message,
+                Data = response.Data
+            };
+        }
     }
 }

@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using EstadioIQ.Entity.Common;
+﻿using EstadioIQ.Entity.Common;
 using EstadioIQ.Entity.DTO;
-using EstadioIQ.Entity.Model;
 
 namespace EstadioIQ.BAL.Interface
 {
@@ -17,5 +11,6 @@ namespace EstadioIQ.BAL.Interface
         ResponseData DeleteMatchPerformance(int id);
         ResponseData AddMatchPerformance(MatchPerformanceDto matchPerformance);
         ResponseData<List<PlayerDto>> GetBestPerformingPlayers(int minMatches, string position, int page, int size);
+        ResponseData GetPlayerWithMostGA();
     }
 }
