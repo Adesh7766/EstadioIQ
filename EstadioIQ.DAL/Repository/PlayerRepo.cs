@@ -209,6 +209,6 @@ namespace EstadioIQ.DAL.Repository
                 SuccessStatus = true,
                 Message = "Player Added successfully."
             };
-        }               
+        }           
     }
 }

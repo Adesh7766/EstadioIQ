@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using EstadioIQ.DAL.Interface;
@@ -247,6 +248,38 @@ namespace EstadioIQ.DAL.Repository
                 SuccessStatus = true,
                 Message = "Player with most G/A.",
                 Data = player.Where(max => max.TotalGA == player.Max(x => x.TotalGA)).FirstOrDefault()
+            };
+        }
+
+        public ResponseData<List<PlayerFormDto>> GetPlayerForm(int numberOfMatches, int id)
+        {
+            List<PlayerFormDto> playerForm = _context.MatchPerformances.Where(mp => mp.PlayerId == id && mp.Player.IsActive == true)
+                                                                 .OrderByDescending(mp => mp.Match.MatchDate)
+                                                                 .Select(x => new PlayerFormDto
+                                                                 {
+                                                                     Id = x.PlayerId,
+                                                                     Name = x.Player.Name,
+                                                                     TotalGoals = x.Goals,
+                                                                     TotalAssists = x.Assists,
+                                                                     AverageRating = x.Rating,
+                                                                     IsStarter = x.IsStarter,
+                                                                     MatchDate = x.Match.MatchDate
+                                                                 }).Take(numberOfMatches).ToList();
+
+            if(playerForm.Count == 0)
+            {
+                return new ResponseData<List<PlayerFormDto>>
+                {
+                    SuccessStatus = false,
+                    Message = "Player not found."
+                };
+            }
+
+            return new ResponseData<List<PlayerFormDto>>
+            {
+                SuccessStatus = true,
+                Message = $"Player form over {numberOfMatches} matches.",
+                Data = playerForm
             };
         }
     }

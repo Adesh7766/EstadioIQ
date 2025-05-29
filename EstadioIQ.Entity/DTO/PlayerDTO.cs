@@ -40,4 +40,23 @@ namespace EstadioIQ.Entity.DTO
         public int TotalGA { get; set; }
     }
 
+    public class PlayerFormDto
+    {
+        public int Id { get; set; }
+
+        public string Name { get; set; }
+
+        public int TotalGoals { get; set; }
+
+        public int TotalAssists { get; set; }
+
+        public double AverageRating { get; set; }
+
+        public int MinutesPlayed { get; set; }
+
+        public bool IsStarter { get; set; }
+
+        public DateTime MatchDate { get; set; }
+    }
+
 }
