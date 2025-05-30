@@ -115,5 +115,18 @@ namespace EstadioIQ.API.Controllers
                 Data = response.Data
             };
         }
+
+        [HttpGet("GetMatchSummary")]
+        public ResponseData GetMatchSummary(int matchId)
+        {
+            var response = _service.GetMatchSummary(matchId);
+
+            return new ResponseData
+            {
+                SuccessStatus = response.SuccessStatus,
+                Message = response.Message,
+                Data = response.Data
+            };
+        }
     }
 }
