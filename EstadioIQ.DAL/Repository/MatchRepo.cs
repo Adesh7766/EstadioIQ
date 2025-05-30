@@ -7,6 +7,7 @@ using EstadioIQ.DAL.Interface;
 using EstadioIQ.Entity.Common;
 using EstadioIQ.Entity.DTO;
 using EstadioIQ.Entity.Model;
+using Microsoft.EntityFrameworkCore;
 
 namespace EstadioIQ.DAL.Repository
 {
@@ -137,9 +138,9 @@ namespace EstadioIQ.DAL.Repository
 
         public ResponseData DeleteMatch(int id)
         {
-            var player = _context.Matches.Where(x => x.IsActive == true).FirstOrDefault();
+            var match = _context.Matches.Where(x => x.IsActive == true).FirstOrDefault();
 
-            if (player == null)
+            if (match == null)
             {
                 return new ResponseData
                 {
@@ -148,7 +149,7 @@ namespace EstadioIQ.DAL.Repository
                 };
             }
 
-            player.IsActive = false;
+            match.IsActive = false;
 
             _context.SaveChanges();
 
@@ -202,6 +203,58 @@ namespace EstadioIQ.DAL.Repository
                 SuccessStatus = true,
                 Message = "Match Added successfully."
             };
+        }
+
+        public ResponseData GetMatchSummary(int matchId)
+        {           
+
+            try
+            {
+                var matchDetails = _context.MatchPerformances
+                                .Where(mp => mp.IsActive && mp.MatchId == matchId)
+                                .GroupBy(g => g.MatchId)
+                                .Select(x => new
+                                {
+                                    TotalGoals = x.Sum(y => y.Goals),
+                                    TotalAssists = x.Sum(y => y.Assists),
+                                    AverageRating = x.Average(y => y.Rating),
+                                    TotalPasses = x.Sum(y => y.PassesCompleted)
+                                }).FirstOrDefault();
+
+                var playerInfo = _context.MatchPerformances
+                                           .Where(mp => mp.IsActive && mp.MatchId == matchId)
+                                           .Select(x => new
+                                           {
+                                               PlayerRating = x.Player.AverageRating,
+                                               PlayerName = x.Player.Name
+                                           }).ToList();
+
+                var matchSummary = new
+                {
+                    TotalGoals = matchDetails.TotalGoals,
+                    TotalAssists = matchDetails.TotalAssists,
+                    AverageRating = matchDetails.AverageRating,
+                    TotalPasses = matchDetails.TotalPasses,
+                    PlayerInfo = playerInfo
+                };
+
+                return new ResponseData
+                {
+                    SuccessStatus = true,
+                    Message = "Match summary.",
+                    Data = matchSummary
+                };
+            }
+            catch(Exception ex)
+            {
+                return new ResponseData
+                {
+                    SuccessStatus = false,
+                    Message = $"Following error occured {ex.Message}"
+                };
+            }
+
+            
         }
     }
 }

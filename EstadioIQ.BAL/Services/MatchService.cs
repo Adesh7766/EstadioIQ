@@ -110,5 +110,17 @@ namespace EstadioIQ.BAL.Services
                 Message = response.Message
             };
         }
+
+        public ResponseData GetMatchSummary(int matchId)
+        {
+            var response = _repo.GetMatchSummary(matchId);
+
+            return new ResponseData
+            {
+                SuccessStatus = response.SuccessStatus,
+                Message = response.Message,
+                Data = response.Data
+            };
+        }
     }
 }

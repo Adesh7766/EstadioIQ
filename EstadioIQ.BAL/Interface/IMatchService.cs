@@ -17,13 +17,10 @@ namespace EstadioIQ.BAL.Interface
                                                        string? venue,
                                                        int page,
                                                        int size);
-
         ResponseData<MatchDto> GetMatchById(int id);
-
         ResponseData UpdateMatch(MatchDto match);
-
         ResponseData DeleteMatch(int id);
-
         ResponseData AddMatch(MatchDto match);
+        ResponseData GetMatchSummary(int matchId);
     }
 }
