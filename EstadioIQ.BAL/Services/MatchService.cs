@@ -122,5 +122,17 @@ namespace EstadioIQ.BAL.Services
                 Data = response.Data
             };
         }
+
+        public ResponseData GetTeamSummary(string teamName)
+        {
+            var response = _repo.GetTeamSummary(teamName);
+
+            return new ResponseData
+            {
+                SuccessStatus = response.SuccessStatus,
+                Message = response.Message,
+                Data = response.Data
+            };
+        }
     }
 }

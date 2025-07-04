@@ -206,7 +206,7 @@ namespace EstadioIQ.DAL.Repository
         }
 
         public ResponseData GetMatchSummary(int matchId)
-        {           
+        {
 
             try
             {
@@ -245,7 +245,7 @@ namespace EstadioIQ.DAL.Repository
                     Data = matchSummary
                 };
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 return new ResponseData
                 {
@@ -254,7 +254,59 @@ namespace EstadioIQ.DAL.Repository
                 };
             }
 
-            
+
+        }
+
+
+        public ResponseData GetTeamSummary(string teamName)
+        {
+            teamName = teamName.ToLower();
+
+            try
+            {
+                var matches = _context.Matches.Where(x => x.HomeTeam.ToLower() == teamName || x.AwayTeam.ToLower() == teamName).ToList();
+                var avgRating = _context.MatchPerformances.Where(x => x.Player.CurrentTeam.ToLower() == teamName).Select(x => x.Rating).Average();
+
+                int goalsScored = 0;
+                int goalsConceaded = 0;
+
+                foreach(var match in matches)
+                {
+                    if(match.HomeTeam.ToLower() == teamName)
+                    {
+                        goalsScored = match.HomeScore + goalsScored;
+                        goalsConceaded = match.AwayScore + goalsConceaded;
+                    }
+                    else
+                    {
+                        goalsScored = match.AwayScore + goalsScored;
+                        goalsConceaded = match.HomeScore + goalsConceaded;
+                    }
+                }
+
+                var teamSummary = new
+                {
+                    TotalMatches = matches.Count(),
+                    TotalGoalsScored = goalsScored,
+                    TotalGoalsConceaded = goalsConceaded,
+                    AverageRating = avgRating
+                };
+
+                return new ResponseData
+                {
+                    SuccessStatus = true,
+                    Message = "Team summary.",
+                    Data = teamSummary
+                };
+            }
+            catch (Exception ex)
+            {
+                return new ResponseData
+                {
+                    SuccessStatus = false,
+                    Message = $"Following error occured {ex.Message}"
+                };
+            }
         }
     }
 }
