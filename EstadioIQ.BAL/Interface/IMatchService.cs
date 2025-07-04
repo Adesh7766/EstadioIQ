@@ -22,5 +22,6 @@ namespace EstadioIQ.BAL.Interface
         ResponseData DeleteMatch(int id);
         ResponseData AddMatch(MatchDto match);
         ResponseData GetMatchSummary(int matchId);
+        ResponseData GetTeamSummary(string teamName);
     }
 }

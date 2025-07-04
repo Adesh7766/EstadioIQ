@@ -23,5 +23,6 @@ namespace EstadioIQ.DAL.Interface
         ResponseData DeleteMatch(int id);
         ResponseData AddMatch(Match match);
         ResponseData GetMatchSummary(int matchId);
+        ResponseData GetTeamSummary(string teamName);
     }
 }
