@@ -1,4 +1,6 @@
-﻿using System.Threading.Tasks;
+﻿using System.Text.Json.Nodes;
+using System.Threading.Tasks;
+using Azure;
 using EstadioIQ.BAL.Interface;
 using EstadioIQ.Entity.Common;
 using EstadioIQ.Entity.DTO;
@@ -161,6 +163,32 @@ namespace EstadioIQ.API.Controllers
                 Message = response.Message,
                 Data = response.Data
             };
+        }
+
+        [HttpGet("ComparePlayers")]
+        public ResponseData<List<PlayerDto>> ComparePlayers(int firstPlayerId, int secondPlayerId)
+        {
+            var firstPlayer = _service.GetPlayerById(firstPlayerId).Data;
+            var secondPlayer = _service.GetPlayerById(secondPlayerId).Data;
+
+
+            if (firstPlayer != null && secondPlayer != null)
+            {
+                return new ResponseData<List<PlayerDto>>
+                {
+                    SuccessStatus = true,
+                    Message = $"Comparision between {firstPlayer.Name} and {secondPlayer.Name}",
+                    Data = new List<PlayerDto> { firstPlayer, secondPlayer }
+                };
+            }
+            else
+            {
+                return new ResponseData<List<PlayerDto>>
+                {
+                    SuccessStatus = false,
+                    Message = "Players not found."
+                };
+            }
         }
     }
 }

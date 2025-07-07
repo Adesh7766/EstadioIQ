@@ -264,7 +264,7 @@ namespace EstadioIQ.DAL.Repository
 
             try
             {
-                var matches = _context.Matches.Where(x => x.HomeTeam.ToLower() == teamName || x.AwayTeam.ToLower() == teamName).ToList();
+                var matches = _context.Matches.Where(x => x.HomeTeam.Contains(teamName) || x.AwayTeam.Contains(teamName)).ToList();
                 var avgRating = _context.MatchPerformances.Where(x => x.Player.CurrentTeam.ToLower() == teamName).Select(x => x.Rating).Average();
 
                 int goalsScored = 0;
@@ -272,7 +272,7 @@ namespace EstadioIQ.DAL.Repository
 
                 foreach(var match in matches)
                 {
-                    if(match.HomeTeam.ToLower() == teamName)
+                    if(match.HomeTeam.Contains(teamName))
                     {
                         goalsScored = match.HomeScore + goalsScored;
                         goalsConceaded = match.AwayScore + goalsConceaded;
