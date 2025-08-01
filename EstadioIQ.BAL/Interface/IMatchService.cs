@@ -23,5 +23,6 @@ namespace EstadioIQ.BAL.Interface
         ResponseData AddMatch(MatchDto match);
         ResponseData GetMatchSummary(int matchId);
         ResponseData GetTeamSummary(string teamName);
+        ResponseData<MatchDto> GetAllUCLMatches(int methodId);
     }
 }

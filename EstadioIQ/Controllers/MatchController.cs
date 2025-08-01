@@ -19,7 +19,7 @@ namespace EstadioIQ.API.Controllers
             _service = service;
         }
 
-        [HttpGet("GetAllMatches")]        
+        [HttpGet("GetAllMatches")]
         public ResponseData<List<MatchDto>> GetMatches(string? homeTeam,
                                                        string? awayTeam,
                                                        DateTime? matchDate,

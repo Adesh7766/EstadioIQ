@@ -9,6 +9,7 @@
   <ItemGroup>
     <ProjectReference Include="..\EstadioIQ.DAL\EstadioIQ.DAL.csproj" />
     <ProjectReference Include="..\EstadioIQ.Entity\EstadioIQ.Entity.csproj" />
+    <ProjectReference Include="..\EstadioIQ.Helper\EstadioIQ.Helper.csproj" />
   </ItemGroup>
 
 </Project>
