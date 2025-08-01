@@ -3,6 +3,7 @@ using EstadioIQ.DAL.Interface;
 using EstadioIQ.Entity.Common;
 using EstadioIQ.Entity.DTO;
 using EstadioIQ.Entity.Model;
+using EstadioIQ.Helper.ApiServices;
 
 namespace EstadioIQ.BAL.Services
 {
@@ -132,6 +133,22 @@ namespace EstadioIQ.BAL.Services
                 SuccessStatus = response.SuccessStatus,
                 Message = response.Message,
                 Data = response.Data
+            };
+        }
+
+        public ResponseData<MatchDto> GetAllUCLMatches(int methodId)
+        {
+            HttpClient httpClient = new HttpClient();
+            AppSettings appSettings = new AppSettings();
+
+            FootballAPIService apiService = new FootballAPIService(httpClient, appSettings);
+
+            var response = apiService.GetAllUclMatches(methodId);
+
+            return new ResponseData<MatchDto>
+            {
+                Message = response.Result.Message,
+                SuccessStatus = response.Result.SuccessStatus
             };
         }
     }
