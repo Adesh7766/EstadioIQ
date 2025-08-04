@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using EstadioIQ.Entity.Common;
 using EstadioIQ.Entity.DTO;
+using EstadioIQ.Entity.DTO.APIResponseDTO;
 using EstadioIQ.Entity.Model;
 
 namespace EstadioIQ.DAL.Interface

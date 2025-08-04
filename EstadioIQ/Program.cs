@@ -12,6 +12,7 @@ using Microsoft.OpenApi.Models;
 using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Configuration;
 using EstadioIQ.Helper.ApiServices;
+using EstadioIQ.Helper.Converter;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -37,6 +38,7 @@ builder.Services.AddScoped<IPlayerService, PlayerService>();
 builder.Services.AddScoped<IMatchService, MatchService>();
 builder.Services.AddScoped<IMatchPerformanceService, MatchPerformanceService>();
 builder.Services.Configure<AppSettings>(builder.Configuration.GetSection("APISettings"));
+builder.Services.AddSingleton<MatchConverter>();
 
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 
