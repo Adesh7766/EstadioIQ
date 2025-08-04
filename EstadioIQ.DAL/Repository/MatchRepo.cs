@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using EstadioIQ.DAL.Interface;
 using EstadioIQ.Entity.Common;
 using EstadioIQ.Entity.DTO;
+using EstadioIQ.Entity.DTO.APIResponseDTO;
 using EstadioIQ.Entity.Model;
 using Microsoft.EntityFrameworkCore;
 

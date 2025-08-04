@@ -1,9 +1,12 @@
-﻿using EstadioIQ.BAL.Interface;
+﻿using System.Data;
+using EstadioIQ.BAL.Interface;
 using EstadioIQ.DAL.Interface;
 using EstadioIQ.Entity.Common;
 using EstadioIQ.Entity.DTO;
+using EstadioIQ.Entity.DTO.APIResponseDTO;
 using EstadioIQ.Entity.Model;
 using EstadioIQ.Helper.ApiServices;
+using EstadioIQ.Helper.Converter;
 
 namespace EstadioIQ.BAL.Services
 {
@@ -136,19 +139,21 @@ namespace EstadioIQ.BAL.Services
             };
         }
 
-        public ResponseData<MatchDto> GetAllUCLMatches(int methodId)
+        public ResponseData<List<MatchDto>> GetAllUCLMatches(int methodId)
         {
             HttpClient httpClient = new HttpClient();
             AppSettings appSettings = new AppSettings();
+            MatchConverter matchConverter = new MatchConverter();
 
-            FootballAPIService apiService = new FootballAPIService(httpClient, appSettings);
+            FootballAPIService apiService = new FootballAPIService(httpClient, appSettings, matchConverter);
 
             var response = apiService.GetAllUclMatches(methodId);
 
-            return new ResponseData<MatchDto>
+            return new ResponseData<List<MatchDto>>
             {
                 Message = response.Result.Message,
-                SuccessStatus = response.Result.SuccessStatus
+                SuccessStatus = response.Result.SuccessStatus,
+                Data = response.Result.Data
             };
         }
     }

@@ -19,14 +19,15 @@ namespace EstadioIQ.API.Controllers
         }
 
         [HttpGet("GetAllUCLMatches")]
-        public ResponseData<MatchDto> GetMatches()
+        public ResponseData<List<MatchDto>> GetMatches()
         {
             var response = _service.GetAllUCLMatches(1);
 
-            return new ResponseData<MatchDto>
+            return new ResponseData<List<MatchDto>>
             {
                 SuccessStatus = response.SuccessStatus,
-                Message = response.Message
+                Message = response.Message,
+                Data = response.Data
             };
         }
     }
