@@ -37,7 +37,10 @@ namespace EstadioIQ.DAL
 
         public DbSet<Season> Seasons { get; set; }
 
-        public DbSet<Referee> Refrees { get; set;}
-        public DbSet<Competition> Competetions { get; set;}
+        public DbSet<Refree> Refrees { get; set; }
+
+        public DbSet<Competition> Competitions { get; set;}
+
+        public DbSet<Area> Areas { get; set; }
     }
 }

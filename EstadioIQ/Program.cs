@@ -25,6 +25,10 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddSingleton<AuthHelper>();
 builder.Services.Configure<AppSettings>(builder.Configuration.GetSection("APISettings"));
 builder.Services.AddTransient<MatchConverter>();
+builder.Services.AddTransient<AreaConverter>();
+builder.Services.AddTransient<RefreeConverter>();
+builder.Services.AddTransient<CompetitionConverter>();
+builder.Services.AddTransient<SeasonConverter>();
 builder.Services.AddTransient<FootballAPIService>();
 
 builder.Services.AddHttpClient(); // Registers IHttpClientFactory
@@ -34,12 +38,20 @@ builder.Services.AddScoped<IApplicationUserRepo, ApplicationUserRepo>();
 builder.Services.AddScoped<IPlayerRepo, PlayerRepo>();
 builder.Services.AddScoped<IMatchRepo, MatchRepo>();
 builder.Services.AddScoped<IMatchPerformanceRepo, MatchPerformanceRepo>();
+builder.Services.AddScoped<ISeasonRepo, SeasonRepo>();
+builder.Services.AddScoped<IAreaRepo, AreaRepo>();
+builder.Services.AddScoped<ICompetitionRepo, CompetitionRepo>();
+builder.Services.AddScoped<IRefreeRepo, RefreeRepo>();
 
 //Services
 builder.Services.AddScoped<IApplicationUserService, ApplicationUserService>();
 builder.Services.AddScoped<IPlayerService, PlayerService>();
 builder.Services.AddScoped<IMatchService, MatchService>();
 builder.Services.AddScoped<IMatchPerformanceService, MatchPerformanceService>();
+builder.Services.AddScoped<ISeasonService, SeasonService>();
+builder.Services.AddScoped<IAreaService, AreaService>();
+builder.Services.AddScoped<ICompetitionService, CompetitionService>();
+builder.Services.AddScoped<IRefreeService, RefreeService>();
 
 
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");

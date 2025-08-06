@@ -54,9 +54,8 @@ namespace EstadioIQ.Entity.DTO.APIResponseDTO
         public TeamDto HomeTeam { get; set; }
         public TeamDto AwayTeam { get; set; }
         public Score Score { get; set; }
-
         public Odds Odds { get; set; }
-        public List<RefereeDto> Referees { get; set; }
+        public List<RefreeDto> Referees { get; set; }
     }
 
     public class TeamDto
@@ -110,7 +109,7 @@ namespace EstadioIQ.Entity.DTO.APIResponseDTO
         public string Msg { get; set; }
     }
 
-    public class RefereeDto
+    public class RefreeDto
     {
         public int Id { get; set; }
         public string Name { get; set; }

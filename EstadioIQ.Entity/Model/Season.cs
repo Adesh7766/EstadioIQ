@@ -9,8 +9,8 @@ namespace EstadioIQ.Entity.Model
     public class Season
     {
         public int Id { get; set; }
-        public string StartDate { get; set; }
-        public string EndDate { get; set; }
+        public DateTime StartDate { get; set; }
+        public DateTime EndDate { get; set; }
         public int CurrentMatchday { get; set; }
         public string Winner { get; set; }  // Can be null
     }

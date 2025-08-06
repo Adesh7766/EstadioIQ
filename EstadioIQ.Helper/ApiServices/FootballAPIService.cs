@@ -41,7 +41,7 @@ namespace EstadioIQ.Helper.ApiServices
 
                 UclApiResponseDTO matchFromApi = JsonSerializer.Deserialize<UclApiResponseDTO>(content, options);
 
-                var converterResponse = _matchConverter.MatchAPIConverter(matchFromApi.Matches);
+                var converterResponse = _matchConverter.MatchDtoAPIConverter(matchFromApi.Matches);
 
                 return new ResponseData<List<MatchDto>>
                 {

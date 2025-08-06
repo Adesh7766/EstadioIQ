@@ -17,15 +17,21 @@ namespace EstadioIQ.Entity.Model
         public string AwayTeam { get; set; }
 
         public DateTime MatchDate { get; set; }
-        public string Competition { get; set; } 
+        public string Competition { get; set; }
 
         public int HomeScore { get; set; }
         public int AwayScore { get; set; }
 
         public bool IsActive { get; set; }
 
-        public List<MatchPerformance> PlayerPerformances { get; set; } 
+        public List<MatchPerformance> PlayerPerformances { get; set; }
 
         public string Venue { get; set; }
+
+        public Area Area { get; set; }
+
+        public Season Season { get; set; }
+
+        public Refree Referee { get; set; }
     }
 }
