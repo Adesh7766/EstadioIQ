@@ -7,16 +7,18 @@ using EstadioIQ.Entity.DTO.APIResponseDTO;
 using EstadioIQ.Entity.Model;
 using EstadioIQ.Helper.ApiServices;
 using EstadioIQ.Helper.Converter;
+using Microsoft.Extensions.Options;
 
 namespace EstadioIQ.BAL.Services
 {
     public class MatchService : IMatchService
     {
         private readonly IMatchRepo _repo;
-
-        public MatchService(IMatchRepo repo)
+        private readonly FootballAPIService _apiService;
+        public MatchService(IMatchRepo repo, FootballAPIService apiService)
         {
             _repo = repo;
+            _apiService = apiService;
         }
 
         public ResponseData<List<MatchDto>> GetMatches(string? homeTeam,
@@ -141,13 +143,7 @@ namespace EstadioIQ.BAL.Services
 
         public ResponseData<List<MatchDto>> GetAllUCLMatches(int methodId)
         {
-            HttpClient httpClient = new HttpClient();
-            AppSettings appSettings = new AppSettings();
-            MatchConverter matchConverter = new MatchConverter();
-
-            FootballAPIService apiService = new FootballAPIService(httpClient, appSettings, matchConverter);
-
-            var response = apiService.GetAllUclMatches(methodId);
+            var response = _apiService.GetAllUclMatches(methodId);
 
             return new ResponseData<List<MatchDto>>
             {

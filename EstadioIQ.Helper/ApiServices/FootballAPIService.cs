@@ -8,6 +8,7 @@ using EstadioIQ.Entity.DTO;
 using EstadioIQ.Entity.DTO.APIResponseDTO;
 using EstadioIQ.Helper.Converter;
 using EstadioIQ.Helper.Enum;
+using Microsoft.Extensions.Options;
 
 namespace EstadioIQ.Helper.ApiServices
 {
@@ -17,12 +18,10 @@ namespace EstadioIQ.Helper.ApiServices
         private readonly AppSettings _appSettings;
         private MatchConverter _matchConverter;
 
-        public FootballAPIService(HttpClient httpClient, AppSettings appSettings, MatchConverter matchConverter)
+        public FootballAPIService(HttpClient httpClient, IOptions<AppSettings> appSettings, MatchConverter matchConverter)
         {
             _httpClient = httpClient;
-            _appSettings = appSettings;
-            var apiKey = _appSettings.APIKey;
-            _httpClient.DefaultRequestHeaders.Add("X-Auth-Token", "e0788800f2e54421b021f795c11cda14");
+            _appSettings = appSettings.Value;            
             _matchConverter = matchConverter;
         }
 
@@ -30,8 +29,8 @@ namespace EstadioIQ.Helper.ApiServices
         {
             if (methodId == (int)MethodEnum.MethodGet)
             {
-                var baseUrl = "https://api.football-data.org/v4/";
-                var response = await _httpClient.GetAsync(baseUrl + "competitions/CL/matches");
+                _httpClient.DefaultRequestHeaders.Add("X-Auth-Token", _appSettings.APIKey);
+                var response = await _httpClient.GetAsync(_appSettings.BaseURL + "competitions/CL/matches");
 
                 string content = await response.Content.ReadAsStringAsync();
 
