@@ -10,7 +10,7 @@ namespace EstadioIQ.Entity.DTO.APIResponseDTO
     {
         public Filters Filters { get; set; }
         public ResultSet ResultSet { get; set; }
-        public Competition Competition { get; set; }
+        public CompetitionDto Competition { get; set; }
         public List<MatchFromApi> Matches { get; set; }
 
     }
@@ -28,7 +28,7 @@ namespace EstadioIQ.Entity.DTO.APIResponseDTO
         public int Played { get; set; }
     }
 
-    public class Competition
+    public class CompetitionDto
     {
         public int Id { get; set; }
         public string Name { get; set; }
@@ -39,9 +39,9 @@ namespace EstadioIQ.Entity.DTO.APIResponseDTO
 
     public class MatchFromApi
     {
-        public Area Area { get; set; }
-        public Competition Competition { get; set; }  // Already declared class
-        public Season Season { get; set; }
+        public AreaDto Area { get; set; }
+        public CompetitionDto Competition { get; set; }  // Already declared class
+        public SeasonDto Season { get; set; }
 
         public int Id { get; set; }
         public string UtcDate { get; set; }
@@ -51,15 +51,15 @@ namespace EstadioIQ.Entity.DTO.APIResponseDTO
         public string Group { get; set; }
         public string LastUpdated { get; set; }
 
-        public Team HomeTeam { get; set; }
-        public Team AwayTeam { get; set; }
+        public TeamDto HomeTeam { get; set; }
+        public TeamDto AwayTeam { get; set; }
         public Score Score { get; set; }
 
         public Odds Odds { get; set; }
-        public List<Referee> Referees { get; set; }
+        public List<RefereeDto> Referees { get; set; }
     }
 
-    public class Team
+    public class TeamDto
     {
         public int Id { get; set; }
         public string Name { get; set; }
@@ -88,7 +88,7 @@ namespace EstadioIQ.Entity.DTO.APIResponseDTO
         public int Away { get; set; }
     }
 
-    public class Area
+    public class AreaDto
     {
         public int Id { get; set; }
         public string Name { get; set; }
@@ -96,7 +96,7 @@ namespace EstadioIQ.Entity.DTO.APIResponseDTO
         public string Flag { get; set; }
     }
 
-    public class Season
+    public class SeasonDto
     {
         public int Id { get; set; }
         public string StartDate { get; set; }
@@ -110,7 +110,7 @@ namespace EstadioIQ.Entity.DTO.APIResponseDTO
         public string Msg { get; set; }
     }
 
-    public class Referee
+    public class RefereeDto
     {
         public int Id { get; set; }
         public string Name { get; set; }
