@@ -296,7 +296,7 @@ namespace EstadioIQ.DAL.Repository
                 return new ResponseData
                 {
                     SuccessStatus = true,
-                    Message = "Team summary.",
+                    Message = "TeamDto summary.",
                     Data = teamSummary
                 };
             }
