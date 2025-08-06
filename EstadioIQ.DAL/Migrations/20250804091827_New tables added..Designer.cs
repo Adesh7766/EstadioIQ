@@ -240,7 +240,7 @@ namespace EstadioIQ.DAL.Migrations
                     b.ToTable("Players");
                 });
 
-            modelBuilder.Entity("EstadioIQ.Entity.Model.Referee", b =>
+            modelBuilder.Entity("EstadioIQ.Entity.Model.Refree", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
