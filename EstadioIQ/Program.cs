@@ -22,9 +22,12 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-
 builder.Services.AddSingleton<AuthHelper>();
+builder.Services.Configure<AppSettings>(builder.Configuration.GetSection("APISettings"));
+builder.Services.AddTransient<MatchConverter>();
+builder.Services.AddTransient<FootballAPIService>();
 
+builder.Services.AddHttpClient(); // Registers IHttpClientFactory
 
 //Repositories
 builder.Services.AddScoped<IApplicationUserRepo, ApplicationUserRepo>();
@@ -37,8 +40,7 @@ builder.Services.AddScoped<IApplicationUserService, ApplicationUserService>();
 builder.Services.AddScoped<IPlayerService, PlayerService>();
 builder.Services.AddScoped<IMatchService, MatchService>();
 builder.Services.AddScoped<IMatchPerformanceService, MatchPerformanceService>();
-builder.Services.Configure<AppSettings>(builder.Configuration.GetSection("APISettings"));
-builder.Services.AddSingleton<MatchConverter>();
+
 
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 
