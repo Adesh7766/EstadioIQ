@@ -1,13 +1,9 @@
-﻿using System.Data;
-using EstadioIQ.BAL.Interface;
+﻿using EstadioIQ.BAL.Interface;
 using EstadioIQ.DAL.Interface;
 using EstadioIQ.Entity.Common;
 using EstadioIQ.Entity.DTO;
-using EstadioIQ.Entity.DTO.APIResponseDTO;
 using EstadioIQ.Entity.Model;
 using EstadioIQ.Helper.ApiServices;
-using EstadioIQ.Helper.Converter;
-using Microsoft.Extensions.Options;
 
 namespace EstadioIQ.BAL.Services
 {

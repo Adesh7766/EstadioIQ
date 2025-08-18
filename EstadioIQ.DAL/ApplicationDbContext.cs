@@ -42,5 +42,9 @@ namespace EstadioIQ.DAL
         public DbSet<Competition> Competitions { get; set;}
 
         public DbSet<Area> Areas { get; set; }
+
+        public DbSet<Club> Clubs { get; set; }
+
+        public DbSet<Coach> Coaches { get; set; }
     }
 }
