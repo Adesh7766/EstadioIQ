@@ -82,6 +82,7 @@ namespace EstadioIQ.API.Controllers
             };
         }
 
+        [AllowAnonymous]
         [HttpPost("RegisterUser")]
         public ResponseData RegisterUser([FromBody] RegisterDto user)
         {
