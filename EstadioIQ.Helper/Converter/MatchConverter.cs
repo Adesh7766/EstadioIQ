@@ -2,7 +2,6 @@
 using EstadioIQ.Entity.DTO;
 using EstadioIQ.Entity.DTO.APIResponseDTO;
 using EstadioIQ.Entity.Model;
-using Microsoft.AspNetCore.CookiePolicy;
 
 
 namespace EstadioIQ.Helper.Converter

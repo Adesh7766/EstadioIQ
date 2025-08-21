@@ -23,7 +23,7 @@ namespace EstadioIQ.DAL.Repository
                 {
                     SuccessStatus = true,
                     Message = "All availablke Competitions",
-                    Data = Competitions
+                    Data = competitions
                 };
             }
 
