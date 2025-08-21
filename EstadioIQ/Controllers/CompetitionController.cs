@@ -1,7 +1,6 @@
 ﻿using EstadioIQ.BAL.Interface;
 using EstadioIQ.Entity.Common;
 using EstadioIQ.Entity.DTO.APIResponseDTO;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EstadioIQ.API.Controllers
@@ -15,7 +14,6 @@ namespace EstadioIQ.API.Controllers
         public CompetitionController(ICompetitionService service)
         {
             _service = service;
-            _env = env;
         }
 
         [HttpGet("GetAllCompetition")]

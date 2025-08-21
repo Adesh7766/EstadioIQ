@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using EstadioIQ.DAL.Interface;
+﻿using EstadioIQ.DAL.Interface;
 using EstadioIQ.Entity.Common;
-using EstadioIQ.Entity.DTO;
 using EstadioIQ.Entity.Model;
 
 namespace EstadioIQ.DAL.Repository

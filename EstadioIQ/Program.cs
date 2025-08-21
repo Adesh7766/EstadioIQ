@@ -10,7 +10,6 @@ using EstadioIQ.BAL.Services;
 using EstadioIQ.BAL.Interface;
 using Microsoft.OpenApi.Models;
 using Microsoft.Extensions.FileProviders;
-using Microsoft.Extensions.Configuration;
 using EstadioIQ.Helper.ApiServices;
 using EstadioIQ.Helper.Converter;
 
@@ -42,6 +41,7 @@ builder.Services.AddScoped<ISeasonRepo, SeasonRepo>();
 builder.Services.AddScoped<IAreaRepo, AreaRepo>();
 builder.Services.AddScoped<ICompetitionRepo, CompetitionRepo>();
 builder.Services.AddScoped<IRefreeRepo, RefreeRepo>();
+builder.Services.AddScoped<IClubRepo, ClubRepo>();
 
 //Services
 builder.Services.AddScoped<IApplicationUserService, ApplicationUserService>();
@@ -52,6 +52,16 @@ builder.Services.AddScoped<ISeasonService, SeasonService>();
 builder.Services.AddScoped<IAreaService, AreaService>();
 builder.Services.AddScoped<ICompetitionService, CompetitionService>();
 builder.Services.AddScoped<IRefreeService, RefreeService>();
+builder.Services.AddScoped<IClubService, ClubService>();
+
+//Converter
+builder.Services.AddTransient<ClubConverter>();
+builder.Services.AddTransient<MatchConverter>();
+builder.Services.AddTransient<CoachConverter>();
+builder.Services.AddTransient<CompetitionConverter>();
+builder.Services.AddTransient<AreaConverter>();
+builder.Services.AddTransient<RefreeConverter>();
+builder.Services.AddTransient<SeasonConverter>();
 
 
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
@@ -109,6 +119,16 @@ builder.Services.AddSwaggerGen(c =>
     c.AddSecurityRequirement(securityRequirement);
 });
 
+builder.Services.AddCors(options =>
+{
+    options.AddDefaultPolicy(
+        policy =>
+        {
+            policy.WithOrigins("http://localhost:5173/");
+        }
+    );
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -124,6 +144,8 @@ app.UseStaticFiles(new StaticFileOptions
         Path.Combine(builder.Environment.ContentRootPath, "Uploads")),
     RequestPath = "/playerImage"
 });
+
+app.UseCors();
 
 app.UseAuthentication();
 
