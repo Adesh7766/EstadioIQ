@@ -10,9 +10,9 @@ namespace EstadioIQ.Helper.Converter
             Club model = new Club();
 
             model.Name = data.Name;
-            model.Code = data.Tla;
-            model.OfficialSite = data.website;
-            model.StadiumName = data.Venue;
+            model.Tla = data.Tla;
+            model.website = data.website;
+            model.Venue = data.Venue;
             model.Area.Name = data.Area.Name;
             model.Area.Flag = data.Area.Flag;
             model.Area.Code = data.Area.Code;
@@ -25,12 +25,12 @@ namespace EstadioIQ.Helper.Converter
             ClubDto data = new ClubDto();
 
             data.Name = model.Name;
-            data.Tla = model.Code;
-            data.website = model.OfficialSite;
-            data.Venue = model.StadiumName;
-            data.Area.Name = model.Area.Name;
-            data.Area.Flag = model.Area.Flag;
-            data.Area.Code = model.Area.Code;
+            data.Tla = model.Tla;
+            data.website = model.website;
+            data.Venue = model.Venue;
+            data.Area.Name = model.Area?.Name ?? "";
+            data.Area.Flag = model.Area?.Flag ?? "";
+            data.Area.Code = model.Area?.Code ?? "";
 
             return data;
         }

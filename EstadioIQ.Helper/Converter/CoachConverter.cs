@@ -13,7 +13,7 @@ namespace EstadioIQ.Helper.Converter
             model.DateOfBirth = DateTime.Parse(data.DateOfBirth);
             model.Nationality = data.Nationality;
             model.Club.Name = data.Club.Name;
-            model.Club.Code = data.Club.Tla;
+            model.Club.Tla = data.Club.Tla;
             model.ContractStartDate = data.Contract.Start;
             model.ContractEndDate = data.Contract.Until;
 
@@ -29,7 +29,7 @@ namespace EstadioIQ.Helper.Converter
             data.DateOfBirth = model.DateOfBirth.ToShortDateString();
             data.Nationality = model.Nationality;
             data.Club.Name = model.Club.Name;
-            data.Club.Tla = model.Club.Code;
+            data.Club.Tla = model.Club.Tla;
             data.Contract.Start = model.ContractStartDate;
             data.Contract.Until = model.ContractEndDate;
 

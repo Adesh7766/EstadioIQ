@@ -10,12 +10,12 @@ namespace EstadioIQ.Entity.Model
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public string Code { get; set; }
-        public string OfficialSite { get; set; }
-        public bool IsActive { get; set; }
-        public string LogoUrl { get; set; }
+        public string Tla { get; set; }
+        public string website { get; set; }
+        public bool IsActive { get; set; } = true;
+        public string Crest { get; set; }
         public string StadiumUrl { get; set; }
         public Area Area { get; set; }
-        public string StadiumName { get; set; }
+        public string Venue { get; set; }
     }
 }

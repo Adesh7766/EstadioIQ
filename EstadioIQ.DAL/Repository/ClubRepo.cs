@@ -62,8 +62,8 @@ namespace EstadioIQ.DAL.Repository
             if (dbData != null)
             {
                 dbData.Name = Club.Name;
-                dbData.Code = Club.Code;
-                dbData.StadiumName = Club.StadiumName;
+                dbData.Tla = Club.Tla;
+                dbData.Venue = Club.Venue;
 
                 _context.SaveChanges();
 
@@ -91,7 +91,7 @@ namespace EstadioIQ.DAL.Repository
                     Message = "Name is required."
                 };
             }
-            else if (Club.Code == null)
+            else if (Club.Tla == null)
             {
                 return new ResponseData
                 {
@@ -99,7 +99,7 @@ namespace EstadioIQ.DAL.Repository
                     Message = "Code is required."
                 };
             }
-            else if (Club.StadiumName == null)
+            else if (Club.Venue == null)
             {
                 return new ResponseData
                 {
